@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color the box</title>
+    <style>
+      #color-box {
+        transition: 1s background-color;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Color the box</h1>
+    <div id="color-box"></div>
+    <script>
+      var doc = document.getElementById("color-box");
+      const changeColorAfter = (color, delay) => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve((doc.style.backgroundColor = color));
+          }, delay);
+        });
+      };
+      changeColorAfter("red")
+        .then((color) => {
+          doc.style.backgroundColor = color;
+          return changeColorAfter("orange", 2000);
+        })
+        .then((color) => {
+          doc.style.backgroundColor = color;
+          return changeColorAfter("yellow", 3000);
+        })
+        .then((color) => {
+          doc.style.backgroundColor = color;
+          return changeColorAfter("green", 1000);
+        })
+        .then((color) => {
+          doc.style.backgroundColor = color;
+          return changeColorAfter("blue", 4000);
+        })
+        .then((color) => {
+          doc.style.backgroundColor = color;
+          return changeColorAfter("indigo", 5000);
+        })
+        .then((color) => {
+          doc.style.backgroundColor = color;
+        });
+    </script>
+  </body>
+</html>

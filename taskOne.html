@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <style>
+      .box {
+        display: flex;
+      }
+      #height {
+        padding: 15px;
+        background-color: rgb(208, 243, 231);
+      }
+      #width {
+        padding: 15px;
+        background-color: rgb(247, 233, 215);
+        margin: 5px;
+      }
+    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Task One</title>
+  </head>
+  <body>
+    <h4>
+      Resize the Browser window to see the changes in width and height insde
+      boxes.
+    </h4>
+    <div class="box">
+      <p>Window/Browser width: <span id="width"></span></p>
+      <p>Window/Browser height: <span id="height"></span></p>
+    </div>
+    <script>
+      const heightOutput = document.querySelector("#height");
+      const widthOutput = document.querySelector("#width");
+      function reportWindowSize() {
+        heightOutput.textContent = window.innerHeight;
+        widthOutput.textContent = window.innerWidth;
+      }
+      window.onresize = reportWindowSize;
+      document
+        .getElementById("width")
+        .addEventListener("contextmenu", (event) => {
+          event.preventDefault();
+          alert("Right click is disabled");
+        });
+      document.getElementById("height").addEventListener("click", (event) => {
+        event.preventDefault();
+        alert("Left click is disabled");
+      });
+    </script>
+  </body>
+</html>
